@@ -1,0 +1,58 @@
+## Jekyll Paper 1.3.2
+
+- [Dependencies] Upgrade mermaid to latest version.
+- [Fix] Break line error in the diagrams.
+
+## Jekyll Paper 1.3.1
+
+- [Add] Diagrams supports.
+- [Update] Update styles.
+- [Fix] SEO tags error.
+
+## Jekyll Paper 1.3.0
+
+- [Add] MathJax support.
+- [Add] Screenshots.
+- [Update] Update class names.
+
+### Jekyll Paper 1.2.3
+
+- [Add] Jekyll Paper logo.
+- [Add] Jekyll-SEO-Tag plugin.
+
+### Jekyll Paper v1.2.2
+
+- [Add] Meta keywords.
+- [Add] Disqus comments support.
+- [Update] Update Jekyll to 3.8.5.
+- [Update] Update Jekyll-feed to 0.11.0.
+- [Update] Update task list style.
+- [Fix] Date format.
+- [Fix] Highlighter style.
+
+### Jekyll Paper v1.2.1
+
+- [Add] German, Japanese, and Portuguese supported.
+- [Add] Menu supports absolute URL.
+- [Add] Default menu items (index, categories, and about).
+- [Add] Posts update date.
+- [Add] Tag archives.
+
+### Jekyll Paper v1.2.0
+
+- [Add] Configurable navigation menu.
+- [Add] Categories index.
+- [Add] French, Spanish, and Traditional Chinese supported.
+- [Update] Add pages folder.
+- [Update] Center the post's title.
+- [Fix] Validate HTML.
+
+### Jekyll Paper v1.1.0
+
+- [Add] Support for multiple languages (English and Simplified Chinese).
+- [Add] Sitemap.
+- [Update] Converted CSS to SASS.
+
+### Jekyll Paper v1.0.0
+
+- Basic implementations.
