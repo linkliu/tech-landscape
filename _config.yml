@@ -17,7 +17,7 @@ title: TECH-Landscape
 email: mucylulu@gmail.com
 name: 天朝侠客
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here.
+  技术随笔，一些资料，一些总结.
 keywords: [Your keywords]
 baseurl: "/tech-landscape" # the subpath of your site, e.g. /blog
 url: "https://linkliu.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
