@@ -20,7 +20,7 @@ permalink: /:categories/:title
 excerpt_separator: "[-----]"
 
 url: "https://linkliu.github.io/tech-landscape/"  # Required: replace this with your domain
-name: Tech_landscape # Required: will be displayed on every page's header
+name:  # Required: will be displayed on every page's header
 title: 技术文档日记 # Required: site's default title
 shout: # Required: **TWO** lines, will be displayed on page's header.
   - 技术资料
