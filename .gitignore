@@ -1,12 +1,6 @@
-# output
-_site
-
-# cache
-.sass-cache
-.jekyll-metadata
-
-# gem lock file
-Gemfile.lock
-
-# Mac OSX
+*.lock
 .DS_Store
+_site/
+.sass-cache/
+node_modules/
+package-lock.json

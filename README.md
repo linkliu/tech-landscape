@@ -1,104 +1,108 @@
-# Jekyll-Paper
+# Jekyll Theme Textalic
 
-![Jekyll-Paper](./favicon.ico)
+[![feature_jt](https://img.shields.io/badge/featured%20on-JT-red.svg)](https://jekyll-themes.com)
 
-English | [简体中文](./README-CN.md)
+![mockup](./assets/img/mockup.png)
 
-Jekyll Paper is a simple Jekyll theme, and it is aim to helping you to create your own blog by the easiest way.
-
-Github Pages version is also available in [Jekyll Paper for Github][jekyll-paper-github].
-
-This is a [demo website](https://www.ghosind.com) for Jekyll Paper.
+**Textalic** is a simple, responsive jekyll theme focus on blogging. Here is a [live demo](https://unifreak.github.io/jekyll-theme-textalic/).
 
 ## Features
 
-- Responsive
-- Paginate
-- RSS
+- Github flavor markdown rendering
+- Post category, tag and series
+- Code highlighting
+- Autogenerate table of content
+- Disqus comment
+- Fulltext search (powered by [jekyll-simple-search plugin](https://github.com/christian-fei/Simple-Jekyll-Search))
+- Google analytics
+- Atom feed
 - Sitemap
-- Custom 404 page
-- SASS
-- Multiple languages
-- Configurable navigation menu
-- Categories Index
-- SEO optimization
-- Mathematics (MathJax)
-- Diagrams (Mermaid)
-- Comments (Disqus)
 
-## Getting Start
+## Install & Configuration
 
-Jekyll Paper is easy to create your own blog. You can create your blog by five steps only!
+### Set up jekyll
 
-1. `$ gem install bundler jekyll`
-2. `$ git clone git@github.com:ghosind/Jekyll-Paper.git`
-3. `$ cd Jekyll-Paper`
-4. `Jekyll-Paper $ bundle install`
-5. `Jekyll-Paper $ bundle exec jekyll serve`
+Before anything, make sure you have set up jekyll correctly. See [the official jekyll doc](https://jekyllrb.com/docs/).
 
-## Add New Posts
+### Clone this repo
 
-You can add new posts at any time after you had your own blog. Create a new post need to add a new file in "_posts" directory, and the file name must follow the convention `YYYY-MM-DD-name-of-post.md`.
+Clone this repo into to your local machine, then `cd` to the root directory of your local copy. Here is an overview of the project's file structure:
 
-## Custom Navigation Menu
-
-You can add or update navigation menu items in `_data/menus.yml` file. In the configuration file, you need set title and URL for every navigation menu item.
-
-### Example
-
-```yml
-- title: "Index"
-  url:   ""
-
-- title: "Github"
-  absoluteUrl: true
-  url: "https://github.com/john_doe"
-
-- title: "About"
-  url:   "about"
+```console
+jekyll-theme-textalic
+├── 404.html                    # 404 page
+├── Gemfile
+├── LICENCE
+├── _config.yml                 # Main config
+├── _data
+│   └── me.yml                  # Personal info config
+├── _demo_series                # A demo series, add series into series folder
+│   └── demo_series_post_1.md
+├── _includes
+├── _layouts
+├── _posts
+│   └── 2019-12-25-Intro.md     # Add new post here
+├── _sass
+├── about                       # About page
+├── assets                      # images, fonts, css, js...
+│   ├── img
+│   │   ├── me.png              # Replace with your own, showed in /about page
+├── favicon.ico                 # Replace with your own
+├── feed.xml
+├── index.html
+├── resume
+│   └── index.md                # You may write your resume here. linked in /about page
+├── search.json
+├── series
+└── tag
 ```
 
-## Supported Languages
+### Install gems
 
-Jekyll Paper has supported the following languages. I'm anticipating you to help me improve the quality of translations and add more languages. The languages list by alphabets of its language code.
+Run the following to install required gems defined in `Gemfile`:
 
-- English
-- Deutsche (German)
-- Español (Spanish)
-- Français (French)
-- 日本語 (Japanese)
-- Português (Portuguese)
-- 简体中文 (Simplified Chinese)
-- 繁體中文 (Traditional Chinese)
+```
+$ bundle install
+```
 
-## Screenshots
+### Customization
 
-The home page:
+Edit `_config.yml` and `_data/me.yml` to tweek the site configuration to your need. See corresponding file's comments for details.
 
-![Index](./assets/images/index-screenshot.png)
+You also should replace the `/favicon.ico` and `/assets/img/me.png` file with your own.
 
-The post page:
+### Run locally
 
-![Post](./assets/images/post-screenshot.png)
+Run `bundle exec serve --watch` to run it locally.
 
-The category page:
+## Blogging
 
-![Category](./assets/images/category-screenshot.png)
+You can begin writting your posts under `/_posts` folder. See [Jekyll doc on posts](https://jekyllrb.com/docs/posts/).
 
-The home page in mobile version:
+Posts are automatically grouped under site's post/category and post/tag menu. You can define post's category and tags in the post's [front matter](https://jekyllrb.com/docs/front-matter/), using `category` and `tags` front matter block.
 
-![Mobile](./assets/images/mobile-screenshot.png)
+### Series
 
-## License
+Sereis are implemented using [Jekyll's collections](https://jekyllrb.com/docs/collections/). So to add new series, following these steps:
 
-Jekyll Paper was released under MIT license.
+1. Define a new collection in `_config.yml`, under `collections` configuration block
 
-## Contributing
+    ```yaml
+    collections:
+      demo_series:
+        output: true
+    ```
 
-If you would like to make Jekyll Paper better, you can create a new pull request in [Jekyll Paper Github Page][jekyll-paper].
+    Note that to make the change to `_config.yml` take effects, you **need to restart jekyll**.
 
-If you have any questions or suggestions, you can create an issue on [Jekyll Paper Issues][jekyll-paper-issues].
+2. Create the series (aka collection) folder `/_demo_series`. Note that the **folder name begin with `_`**
 
-[jekyll-paper]: https://github.com/ghosind/Jekyll-Paper
-[jekyll-paper-github]: https://github.com/ghosind/Jekyll-Paper-Github
-[jekyll-paper-issues]: https://github.com/ghosind/Jekyll-Paper/issues
+3. By adding new post under series folder, you add post under the corresponding series
+
+## Deployment
+
+See [Jekyll doc on deployment](https://jekyllrb.com/docs/deployment/)
+
+## That's it
+
+Happy blogging!
