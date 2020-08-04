@@ -1,27 +1,27 @@
 # These data will be shown in /about page and every page footer
 # Replace these with your own personal info
 
-name: "YOUR NAME"
-job: "Job Title"
-hi: "HIYA!"
+name: "LINK LIU"
+job: "游戏开发攻城狮"
+hi: "程序是一门艺术!"
 avatar_img: "/assets/img/me.png" # path to your avatar
 intro:
-  - "Some thing about yourself"
-  - "Can have multiple lines"
+  - "我是一名游戏开发者，同时也是一名游戏爱好者"
+  - "技术学无止境"
+  - "编程是一门艺术"
 skills:
   - name: "Programming"
     icon-class: "fa fa-terminal"
-    list: ["PHP", "Python", "Shell", "C", "SQL"]
+    list: ["Unity3D", "Unreal"]
   - name: "Framework"
     icon-class: "fa fa-th-list"
-    list: ["Laravel / Lumen", "ThinkPHP", "Yii", "Flask"]
+    list: ["C#", "Lua", "C++", "Erlang"]
   - name: "Tools"
     icon-class: "fa fa-cogs"
-    list: ["Linux", "Docker", "Git", "SublimeText"]
+    list: ["Linux", "Git", "ToLua","vscode"]
 
-display_name: "YOUR NAME"
+display_name: "LinkLiu"
 contact:
-  - {name: "Mobile", icon-class: "fa fa-phone-square", text: "123 4567 8910", link: "tel: 123 4567 8010"}
-  - {name: "Email", icon-class: "fa fa-envelope", text: "example@example.com", link: "mailto: example@example.com"}
+  - {name: "Email", icon-class: "fa fa-envelope", text: "example@example.com", link: "mailto:mucylulu@163.com/mucylulu@gmail.com"}
 social:
-  - {name: "GitHub", icon-class: "fa fa-github-square", text: "https://github.com", link: "https://github.com"}
+  - {name: "GitHub", icon-class: "fa fa-github-square", text: "https://github.com/linkliu", link: "https://github.com/linkliu"}
