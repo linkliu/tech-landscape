@@ -3,12 +3,12 @@
 
 name: "LINK LIU"
 job: "游戏开发攻城狮"
-hi: "程序是一门艺术!"
+hi: "编程是一门艺术!"
 avatar_img: "/assets/img/me.png" # path to your avatar
 intro:
   - "我是一名游戏开发者，同时也是一名游戏爱好者"
-  - "技术学无止境"
-  - "编程是一门艺术"
+  - "喜欢的东西很多，时间比较少"
+  - "我还是一位游戏UP主，B站号称“快乐的休闲玩家”"
 skills:
   - name: "Programming"
     icon-class: "fa fa-terminal"
@@ -22,6 +22,6 @@ skills:
 
 display_name: "LinkLiu"
 contact:
-  - {name: "Email", icon-class: "fa fa-envelope", text: "mucylulu@gmail.com", link: "mailto:mucylulu@163.com/mucylulu@gmail.com"}
+  - {name: "Email", icon-class: "fa fa-envelope", text: "mucylulu@gmail.com", link: "mailto:mucylulu@gmail.com"}
 social:
   - {name: "GitHub", icon-class: "fa fa-github-square", text: "https://github.com/linkliu", link: "https://github.com/linkliu"}
