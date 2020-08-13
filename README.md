@@ -1,108 +1,753 @@
-# Jekyll Theme Textalic
+---
+category: shader
+tags: [U3D, Shader,Cookbook,中文版]
+---
 
-[![feature_jt](https://img.shields.io/badge/featured%20on-JT-red.svg)](https://jekyll-themes.com)
+​		我打算试着翻译这本技术书，目的又两个，1.希望自己能帮助英文不太好的朋友，2.希望自己也学到这些知识，顺便帮助自己提升英语水平。我英语水平不是很好，接下来如果有什么错误的地方，有看到的朋友还请帮忙纠正。我不会web前端技术，我想试着学学markdown语法，尽量让页面好看些但是最重要的还是内容。
 
-![mockup](./assets/img/mockup.png)
+  
 
-**Textalic** is a simple, responsive jekyll theme focus on blogging. Here is a [live demo](https://unifreak.github.io/jekyll-theme-textalic/).
+## Unity 5.x Shaders and Effects Cookbook中文版（第二版）
 
-## Features
 
-- Github flavor markdown rendering
-- Post category, tag and series
-- Code highlighting
-- Autogenerate table of content
-- Disqus comment
-- Fulltext search (powered by [jekyll-simple-search plugin](https://github.com/christian-fei/Simple-Jekyll-Search))
-- Google analytics
-- Atom feed
-- Sitemap
 
-## Install & Configuration
+## 目录表
 
-### Set up jekyll
+## [鸣谢](#credits)
 
-Before anything, make sure you have set up jekyll correctly. See [the official jekyll doc](https://jekyllrb.com/docs/).
+## [关于作者](#about_author)
 
-### Clone this repo
+## [www.PacktPub.com](#packtpub)
 
-Clone this repo into to your local machine, then `cd` to the root directory of your local copy. Here is an overview of the project's file structure:
+* [电子书, 优惠, 还有其他](#ebook)
 
-```console
-jekyll-theme-textalic
-├── 404.html                    # 404 page
-├── Gemfile
-├── LICENCE
-├── _config.yml                 # Main config
-├── _data
-│   └── me.yml                  # Personal info config
-├── _demo_series                # A demo series, add series into series folder
-│   └── demo_series_post_1.md
-├── _includes
-├── _layouts
-├── _posts
-│   └── 2019-12-25-Intro.md     # Add new post here
-├── _sass
-├── about                       # About page
-├── assets                      # images, fonts, css, js...
-│   ├── img
-│   │   ├── me.png              # Replace with your own, showed in /about page
-├── favicon.ico                 # Replace with your own
-├── feed.xml
-├── index.html
-├── resume
-│   └── index.md                # You may write your resume here. linked in /about page
-├── search.json
-├── series
-└── tag
-```
+* [为什么需要订阅?](#subscribe)
 
-### Install gems
+## [前言](#preface)
 
-Run the following to install required gems defined in `Gemfile`:
+- [这本书包含哪些内容](#whatcover)
 
-```
-$ bundle install
-```
+- [学习的过程中你需要准备的](#youneed)
 
-### Customization
+- [本书的适合人群](#who_for)
 
-Edit `_config.yml` and `_data/me.yml` to tweek the site configuration to your need. See corresponding file's comments for details.
+- [内容结构](#sections)
 
-You also should replace the `/favicon.ico` and `/assets/img/me.png` file with your own.
+  + [始前准备](#sections)
 
-### Run locally
+  + [操作步骤](#sections)
 
-Run `bundle exec serve --watch` to run it locally.
+  - [原理介绍](#sections)
 
-## Blogging
+  + [额外内容](#sections)
 
-You can begin writting your posts under `/_posts` folder. See [Jekyll doc on posts](https://jekyllrb.com/docs/posts/).
+  - [相关补充](#sections)
 
-Posts are automatically grouped under site's post/category and post/tag menu. You can define post's category and tags in the post's [front matter](https://jekyllrb.com/docs/front-matter/), using `category` and `tags` front matter block.
+- 本书的一些文体要求
 
-### Series
+- 读者反馈
 
-Sereis are implemented using [Jekyll's collections](https://jekyllrb.com/docs/collections/). So to add new series, following these steps:
+- 客户支持
 
-1. Define a new collection in `_config.yml`, under `collections` configuration block
+  - 示例代码下载
 
-    ```yaml
-    collections:
-      demo_series:
-        output: true
-    ```
+  - 本书一些彩图的下载
 
-    Note that to make the change to `_config.yml` take effects, you **need to restart jekyll**.
+  - 勘误表
 
-2. Create the series (aka collection) folder `/_demo_series`. Note that the **folder name begin with `_`**
+  - 版权
 
-3. By adding new post under series folder, you add post under the corresponding series
+  - 本书有问题请联系
 
-## Deployment
+## 1.创建你的第一个着色器
 
-See [Jekyll doc on deployment](https://jekyllrb.com/docs/deployment/)
+- 介绍
 
-## That's it
+- 创建一个基本的标准着色器
 
-Happy blogging!
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+  - 额外内容
+
+- 如何把Unity 4的旧着色器迁移至Unity 5
+
+  - 始前准备
+
+  - 操作步骤
+
+    - 着色器版本的自动升级
+
+    - 使用标准着色器
+
+    - 迁移用户自定义的着色器
+
+  - 原理介绍
+
+  - 额外内容
+
+- 给着色器添加属性
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+  - 额外内容
+
+- 使用表面着色器的属性
+
+  - 操作步骤
+
+  - 原理介绍
+
+  - 相关补充
+
+  - 额外内容
+
+## 2.表面着色器和贴图映射
+
+- 介绍
+
+- 漫反射的着色处理
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+- 使用压缩数组
+
+  - 操作步骤
+    - 压缩矩阵
+
+  - 额外内容
+
+- 向着色器添加贴图
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+  - 相关补充
+
+  - 额外内容
+
+- 通过改变UV值来移动贴图
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+- 法线映射
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+  - 相关补充
+
+- 创建一个带透明通道的材质
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+- 创建一个有全息效果的着色器
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+  - 相关补充
+
+  - 额外内容
+
+- 贴图的压缩和混合
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+- 在地形的表面画一个圆
+
+  - 始前准备
+
+  - 操作步骤
+    - 在表面移动这个圆
+
+  - 原理介绍
+
+## 3. 理解照明模型
+
+- 介绍
+
+- 创建一个自定义的漫反射光照模型
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+- 创建一个卡通风格的着色器
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+  - 相关补充
+
+- 创建一个Phong类型的镜面反射着色器
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+- 创建 BlinnPhong 类型的镜面反射着色器
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+  - 额外内容
+
+- 创建各向异性类型的镜面反射着色器
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+## 4.Unity 5中基于物理原理的渲染
+
+- 介绍
+
+- 理解着色器中金属质感属性的设置
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+  - 额外内容
+
+- 物理原理的渲染中添加透明通道
+
+  - 始前准备
+
+  - 操作步骤
+
+    - 半透明材质
+
+    - 物体如何消失
+
+    - 如何在显示物体中挖一个孔
+
+  - 额外内容
+
+- 创建一面镜子和反射面
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+  - 额外内容
+
+- 场景中光的烘培
+
+  - 始前准备
+
+  - 操作步骤
+
+    - 场景中静态集合体的设置
+
+    - 光探针的设置
+
+    - 开始烘培光
+
+  - 原理介绍
+
+  - 额外内容
+
+## 5.顶点的操作方法
+
+- 介绍
+
+- 在表面着色器中访问顶点颜色
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+  - 相关补充
+
+- 对表面着色器中的顶点使用动画
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+- 模型的形变
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+  - 相关补充
+    - 添加形变贴图
+
+- 实现一个被雪覆盖的着色器
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+    - 为物体表面设置颜色
+
+    - 修改几何体
+
+  - 额外内容
+
+- 实现范围体爆炸
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+  - 相关补充
+
+  - 额外内容
+
+## 6.片元着色器和通道提取
+
+- 介绍
+
+- 理解顶点和片元着色器
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+  - 相关补充
+
+    - 顶点的输入语义
+
+    - 顶点的输出语义
+
+  - 额外内容
+
+- 使用通道提取
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+  - 相关补充
+
+- 实现一个玻璃效果的着色器
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+  - 相关补充
+
+- 在2D游戏中实现水效果的着色器
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+## 7. 移动设备中着色器的调整
+
+- 介绍
+
+- 什么是着色器的轻量化?
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+- 着色器的性能分析
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+  - 相关补充
+
+- 针对移动设备修改着色器
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+## 8.通过Unity 渲染贴图实现屏幕特效
+
+- 介绍
+
+- 设置屏幕特效脚本系统
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+  - 相关补充
+
+- 亮度, 饱和度和对比度在屏幕特效中的作用
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+- 屏幕特效中基础的照片融合模式
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+  - 相关补充
+
+- 屏幕特效中的叠加混合模式
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+## 9.游戏和屏幕特效
+
+- 介绍
+
+- 创建一个老电影屏幕特效
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+  - 额外内容
+
+- 创建一个夜视仪效果的屏幕特效
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+  - 相关补充
+
+## 10.更高级的着色器技术
+
+- 介绍
+
+- 使用Unity内建的CG包含文件功能
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+- CG包含文件功能如何让着色器模块化
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+- 实现一个毛皮效果的着色器
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+  - 相关补充
+
+- 如何通过数组来实现热图
+
+  - 始前准备
+
+  - 操作步骤
+
+  - 原理介绍
+
+
+
+
+
+
+
+***
+
+<span id="credits"></span>
+
+**鸣谢** 
+
+**本书作者** 
+
+Alan Zucconi 
+
+Kenneth Lammers 
+
+**审稿** 
+
+Kenneth Lammers 
+
+**组稿编辑** 
+
+Priya Singh 
+
+**策划编辑** 
+
+Rahul Nair 
+
+Erol Staveley 
+
+**项目内容编辑** 
+
+Mehvash Fatima 
+
+**技术编辑** 
+
+Pranil Pathare 
+
+Danish Shaikh 
+
+**文字编辑** 
+
+Tasneem Fatehi 
+
+**项目助理** 
+
+Kinjal Bari 
+
+**校对员** 
+
+Safis Editing 
+
+**索引员** 
+
+Monica Ajmera Mehta 
+
+**图像** 
+
+Kirk D’Penha 
+
+Disha Haria 
+
+**制作协调员** 
+
+Nilesh Mohite 
+
+**封面设计** 
+
+Nilesh Mohite
+
+
+
+---
+
+<span id="about_author"></span>
+
+**关于作者** 
+
+**Alan Zucconi** 是一个充满激情的开发者, 作者, 和一个激励的演讲者, 是开发者领域的佼佼者。 有着过去10年来相关领域的专业技能积累，并且决定在今后把精力都放在学术领域和游戏产业领域。作为一名自由职业者，他以非凡的创造力去探索如何让游戏更好的与艺术结合。  在此之前，他在伦敦帝国理工学院工作，在这里他发现了他教学和写作的激情。 他的头衔包括了 gravity puzzle, 0RBITALIS, 和the upcoming time travel platformer, Still Time（这些单词实在不知道怎么翻译了，应该是游戏名字）. 
+
+**Kenneth Lammers** 在游戏领域有超过15年的经验, 担任过角色艺术家，技术美术，技术美术总监，和程序员。这让他有机会参与《使命召唤3》《除暴战警2》 《心灵杀手》和《Kinect星球大战》等众多著名游戏的开发。他现在跟他的商业伙伴**Noah Kaarbo**一起运营自己的Ozone 工作。，同时，他们也跟亚马逊，Eline Media，IGT和微软也有过合作。他之前为微软游戏工作室，动视和Surreal工作过。现如今他离开了哪些工作室，一手开办了自己的 CreativeTD 和 Ozone 工作室（感觉翻译成互动娱乐更好）。Kenny通过Packt Publishing出版社写了他的第一版 《Unity Shaders and Effects Cookbook》书，整个过程非常的愉快。
+
+***
+
+<span id = "packtpub"></span>
+
+## [www.PacktPub.com](https://www.packtpub.com/)
+
+这是一个电子书的网站，等于是帮这个网站宣传了吧，大家直接点击超链接进去看就行了。一般来说，你只要在上面买了电子书，特别是技术书籍，相关的代码，附件也可以从上面下载。
+
+***
+
+<span id = "ebook"></span>
+
+**电子书, 优惠折扣, 额外信息**
+
+**Packt **电子书网站拥有包含pdf和ePub格式的所有已经出版的书籍的电子书。你可以在www.PacktPub.com 更新你的电子书版本并且如果你购买过相应的纸质书籍的话，可以在购买对应的电子版本时享有折扣。你可以通过 <customercare@packtpub.com> 这个邮箱向我们了解优惠的详细信息。你可以在 www.PacktPub.com 阅读一系列免费的技术文章，现在在网站注册可以获知最新的免费和折扣信息 
+
+[https://www2.packtpub.com/books/subscription/packtlib ](https://www2.packtpub.com/books/subscription/packtlib)
+
+（告诉大家一个不幸的消息，上面这个网址已经过期了） 
+
+你是否因为IT技术问题缺乏具体的示例而苦恼，上面这个网站也许可以帮到你，这是一个在线的数字图书馆。你可以在这个数字图书馆上搜索，获取资料和阅读**Packt**电子书网站为你准备的丰富的电子书。
+
+
+
+***
+
+<span id = "subscribe"></span>
+
+**为什么希望你订阅?** 
+
+可以查阅所有 **Packt**网站发布的的书籍 
+
+可以拷贝，打印所有书籍 
+
+可以通过浏览器查找你最需要的资料
+
+
+
+***
+
+<span id = "preface">
+
+## 前言
+
+**Unity 5.x Shaders and Effects Cookbook**这本书能让你在Unity5引擎中创建着色器和特效更加得心应手，能让你入门起来比较容易，学会创建大部分基础的着色器，并且学会如何组织你的着色器代码。本书的章节安排是循序渐进的，每一章节的基础知识，旨在后面让你能实现更高级的技术技巧，比如实现范围体爆炸效果，毛皮特效等。这本书是专门在Unity5这个游戏引擎下讲解的，希望帮助你掌握诸如基于物理原理的渲染和全局光照等知识，让你尽可能获得照片级的效果。 
+
+在每一章的结尾，你都会获得一些新的技巧，这些技巧有助于提高你的着色器质量并且让你在写着色器的时候更加有效率。 为了让你能从入门到专家，每一个章节的特殊技巧和知识点都是我们为你精心编排的。对于着色器的初学者来说，你也可以通过一个章节一个章节的阅读，逐渐丰富你的着色器知识。不管怎样，通过本书的知识点，可以让你的游戏在次世代看起来更棒。当你完成这本书的学习之后，在Unity3d创建游戏的过程中，你就可以有各种各样的着色器用于你的游戏，并且了解怎么向你的游戏中去添加它们，怎么向你的游戏添加各种特效，怎么去优化你的游戏。让我们开始吧。
+
+***
+
+<span id = "whatcover"></span>
+
+**这本书包含哪些内容** 
+
+**<u>第一章</u>**,创建你的第一个着色器, 向你介绍如何在unity4和unity5中编写着色器代码（我会试着在unity2018上去实验，保证shader代码的正常执行，不限于unity4和5）。 
+
+**<u>第二章</u>**, 表面着色器和贴图映射, 介绍了一些如何实现表面着色器的通用且实用的技术，比如如何给游戏模型使用贴图和法线贴图。 
+
+**<u>第三章</u>**, 理解照明模型，带你深入理解在给模型使用着色器时光带来的影响，这一章会教你一些如何实现自定义的光照模型的技术技巧，以便于你去实现一些独特的特效，比如卡通着色器效果。 
+
+**<u>第四章</u>**, Unity 5中基于物理原理的渲染, 这一章为你介绍在unity5中基于物理原理的标准渲染技术，这些技术主要是为了在你的游戏中实现次世代的画面（直译就是看起来跟现实世界一样）。会向你解释如何尽可能的模拟这种现实，让你对透明通道，反射表面和全局光照有更深入的理解。 
+
+**<u>第五章</u>**, 顶点的操作方法,向你介绍如何使用着色器来修改游戏中物体的几何特性；想知道范围体爆炸，着色器模拟下雪等特效嘛？这一章里的着色器操作顶点的技术技巧会告诉你如何实现 
+
+**<u>第六章</u>**, 片元着色器和通道提取, 这一章会解释如何使用半透明材质和通道提取来实现扭曲形变效果 
+
+**<u>第七章</u>**, 移动设备中着色器的调整，主要介绍如何针对移动设备进行优化。 
+
+**<u>第八章</u>**, 通过Unity 渲染贴图实现屏幕特效,介绍了通过该技术才能更容易实现的视觉特效的实现方式。 
+
+**<u>第九章</u>**, 游戏和屏幕特效,向你介绍一些游戏后处理特效，让游戏模拟的更加真实，比如夜视仪特效。 
+
+**<u>第十章</u>**, 更高级的着色器技术,介绍一些向毛坯特效的着色器，热图渲染等本书会涉及的大部分高级技术技巧  
+
+***
+
+<span id="youneed"></span>
+
+**学习的过程中你需要准备的**
+下面列举了在学习本书知识的过程中必须的工具软件和可选的工具软件:
+
+- Unity5引擎
+- 一款3D建模软件，比如Maya，3DMax，或Blender (可选l)
+- 一款2D图片编辑软件，比如PS或者Gimp (可选)  
+
+
+
+***
+
+<span id = "who_for"></span>
+
+**本书的适合人群** 
+
+本书适合色器编程初学者，或者想通过专业的后处理特效让游戏更棒的开发者。 
+
+当然开发者本身需要对Unity游戏引擎有比较深入的理解。
+
+***
+
+<span id = "sections"></span> 
+
+**内容结构** 
+
+在本书中， 会经常出现一系列的小标题 (**始前准备**，**操作步骤**，**原理介绍**，**额外内容** ，**相关补充**)。
+
+主要功能是对每一个知识点进行说明，如何完成该知识点的掌握。下面说明具体的用法： 
+
+
+
+- **始前准备** 
+
+  这个部分会告诉你这个知识点会学习什么，怎么安装和设置对应的软件。 
+
+- **操作步骤**
+
+  这个部分包含了学习该知识点包含那些步骤。
+
+- **原理介绍**
+
+  该部分通常是为了详细解释“**操作步骤**”这个部分的知识原理，上面的每一步到底做了什么。
+
+- **额外内容**
+
+  为了让读者了解更多与该知识点相关的额外知识，我们才准备了这个额外信息让读者阅读。
+
+- **相关补充**
+
+  如果想了解更多与该知识点相关的信息，这里还额外提供了一些相关链接。
+
+
+
