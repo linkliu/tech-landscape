@@ -1,0 +1,65 @@
+---
+category: shader
+tags: [U3D, Shader,Cookbook,中文版]
+---
+
+### 给着色器添加属性
+
+着色器的属性对于着色器管线来说时非常重要，因为艺术家或者用户想要添加贴图或者调整着色器的值都是通过著色器的属性来修改的。着色器的属性在材质的**查看面板(Inspector  )**中会提供GUI，提供图形界面让玩家去调整一个着色器，不用打开额外的编辑器。用Visual Studio Code打开你的着色器代码，从第2行到第7行的代码块就是着色器的**属性(Properties  )**。当前的这个着色器，他会有一个叫**_MainTex**的属性。如果你查看使用了这个着色器的材质，你能注意到着色器的**查看面板(Inspector )**中有一个**贴图(texture )**的GUI元素。着色器中的这行代码为我们创建了这个GUI元素。还有就是，Unity工作人员通过编码方式和努力的迭代，让你改变属性的这个过程非常快速高效。 
+
+
+
+***
+- **始前准备**
+
+  让我们来了解一下这个过程在**标准漫反射(StandardDiffuse)**着色器中是如何工作的，为此我们要创建自己的属性并且学习更多相关的着色器语法。比如我们会修改之前创建的着色器。在这个修改的着色器中，不适用贴图，而是仅仅使用能从**查看面板(Inspector)**直接修改的颜色和其他的属性。开始之前，我们先复制一个**标准漫反射(StandardDiffuse)**着色器。你可以在**项目(Project)**面板中选中它，然后按**Ctrl + D**。这样就会复制一份新的**StandardDiffuse 1  **的着色器。【书上的写法有问题，在Inspector面板根本不能选中复制，应该在项目面板中选中在复制】
+  **注意**
+  你最好给你复制的这个着色器在第一行代码处给它一个恰当的名字。比如，**Shader "CookbookShaders/StandardDiffuse"**可以告诉Unity这个着色器叫**StandardDiffuse **并且把它分组到**CookbookShaders**这个着色器组。如果你是通过**Ctrl + D**复制的着色器，你新复制的这个着色器跟被复制的着色器就会用相同的名字和分组。为了避免混淆，一定要记得复制着色器代码之后，在第一行那里修改着色器的名字，给一个不会重复的名字。 
+
+
+
+
+***
+- **操作步骤**
+
+  Once the StandardDiffuse2 shader is ready, we can start changing its properties:
+  1. 在着色器的**属性(Properties )**块中，删除着色器中下面的属性代码，整行删除：
+  
+    ```
+    _MainTex ("Albedo (RGB)", 2D) = "white" {}
+    ```
+  
+    
+  
+  2. 当我们移除这个必要的属性后，着色器不会被编译直到所有跟**_MainTex**的代码都被移除。然我们删除另外有引用的代码：
+    ```
+    sampler2D _MainTex;
+    ```
+  
+  3. 原始的着色器使用**_MainTex**给游戏模型上色。为了改变这个，我们替换掉**surf()**方法的第一行代码，通过如下代码：
+    ```
+    fixed4 c = _Color;
+    ```
+  
+  4. 当你修改完成之后，返回Unity，然后着色器会被重新编译，When you save and return to Unity, the shader will compile, and you will see that
+      now our material’s Inspector tab doesn’t have a texture swatch anymore. To
+      complete the refit of this shader, let’s add one more property and see what happens.
+      Enter the following code:
+      _AmbientColor ("Ambient Color", Color) = (1,1,1,1)
+  
+  5. We have added another color swatch to the material’s Inspector tab. Now let’s add
+      one more to get a feel for other kinds of properties that we can create. Add the
+      following code to the Properties block:
+      _MySliderValue ("This is a Slider", Range(0,10)) = 2.5
+  
+  6. We have now created another GUI element that allows us to visually interact with our
+      shader. This time, we created a slider with the name This is a Slider, as shown in the
+      following screenshot:
+      Properties allow you to create a visual way to tweak shaders without having to change
+      values in the shader code itself. The next recipe will show you how these properties can
+      actually be used to create a more interesting shader.
+      Note
+      While properties belong to shaders, the values associated with them are stored in
+      materials. The same shader can be safely shared between many different materials. On the
+      other hand, changing the property of a material will affect the look of all the objects that
+      are currently using it.  
