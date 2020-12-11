@@ -15,11 +15,11 @@ description: >-                        # used by seo meta and the atom feed
  游戏技术资料，游戏技术文档
 
 # fill in the base hostname & protocol for your site, e.g., 'https://username.github.io'
-url: 'https://linkliu.github.io/tech-landscape/'
+url: 'https://linkliu.github.io/tech-landscape'
 
 author: Link Liu                  # change to your full name
 
-avatar: /assets/img/me.jpg   # support internet resources
+avatar:  "assets/img/me.png"  # support internet resources
 
 github: 
   username: linkliu             # change to your github username
