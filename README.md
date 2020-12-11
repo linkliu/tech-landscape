@@ -1,1280 +1,183 @@
----
-category: shader
-tags: [U3D, Shader,Cookbook,中文版]
----
-
-​		我打算试着翻译这本技术书，目的又两个，1.希望自己能帮助英文不太好的朋友，2.希望自己也学到这些知识，顺便帮助自己提升英语水平。我英语水平不是很好，接下来如果有什么错误的地方，有看到的朋友还请帮忙纠正。我不会web前端技术，我想试着学学markdown语法，尽量让页面好看些但是最重要的还是内容。
-
-  
-
-## Unity 5.x Shaders and Effects Cookbook中文版（第二版）
-
-
-
-## 目录表
-
-## [鸣谢](#credits)
-
-## [关于作者](#about_author)
-
-## [www.PacktPub.com](#packtpub)
-
-* [电子书, 优惠, 还有其他](#ebook)
-
-* [为什么需要订阅?](#subscribe)
-
-## [前言](#preface)
-
-- [这本书包含哪些内容](#whatcover)
-
-- [学习的过程中你需要准备的](#youneed)
-
-- [本书的适合人群](#who_for)
-
-- [内容结构](#sections)
-
-  + [始前准备](#sections)
-
-  + [操作步骤](#sections)
-
-  - [原理介绍](#sections)
-
-  + [额外内容](#sections)
-
-  - [相关补充](#sections)
-
-- [本书的一些文体说明](#Conventions)
-
-- [读者反馈](#feedback)
-
-- [客户支持](#support)
-
-  - [示例代码下载](#codedownload)
-
-  - [本书一些彩图的下载](#downloadPDF)
-
-  - [勘误表](#errata)
-
-  - [盗版声明](#piracy)
-
-  - [本书有问题请联系](#questions)
-
-## 1.[创建你的第一个着色器](#chapter1)
-
-- [介绍](#cha1_intro)
-
-- [创建一个基本的标准着色器](#CBSS)
-  - [始前准备](#CBSS_getting_ready)
-  
-  - [操作步骤](#CBSS_how_to_do_it)
-  
-  - [原理介绍](#CBSS_how_it_work)
-  
-  - [额外内容](#CBSS_see_also)
-  
-- [如何把Unity 4的旧着色器迁移至Unity 5](#MLSUU)
-  - [始前准备](#MLSUU_getting_ready)
-  
-  - [操作步骤](#MLSUU_how_to_do_it)
-    - 着色器版本的自动升级
-    
-    - 使用标准着色器
-    
-    - 迁移用户自定义的着色器
-  
-  - [原理介绍](#MLSUU_how_it_works)
-
-  - [额外内容](#MLSUU_see_also)
-
-- [给着色器添加属性](#APTS)
-  - [始前准备](#APTS_getting_ready)
-  
-  - [操作步骤](#APTS_how_to_do_it)
-  
-  - [原理介绍](#APTS_how_it_works)
-  
-  - [额外内容](#APTS_see_also)
-  
-- 使用表面着色器的属性
-
-  - 操作步骤
-
-  - 原理介绍
-
-  - 相关补充
-
-  - 额外内容
-
-## 2.表面着色器和贴图映射
-
-- 介绍
-
-- 漫反射的着色处理
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-- 使用压缩数组
-
-  - 操作步骤
-    - 压缩矩阵
-
-  - 额外内容
-
-- 向着色器添加贴图
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-  - 相关补充
-
-  - 额外内容
-
-- 通过改变UV值来移动贴图
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-- 法线映射
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-  - 相关补充
-
-- 创建一个带透明通道的材质
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-- 创建一个有全息效果的着色器
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-  - 相关补充
-
-  - 额外内容
-
-- 贴图的压缩和混合
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-- 在地形的表面画一个圆
-
-  - 始前准备
-
-  - 操作步骤
-    - 在表面移动这个圆
-
-  - 原理介绍
-
-## 3. 理解照明模型
-
-- 介绍
-
-- 创建一个自定义的漫反射光照模型
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-- 创建一个卡通风格的着色器
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-  - 相关补充
-
-- 创建一个Phong类型的镜面反射着色器
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-- 创建 BlinnPhong 类型的镜面反射着色器
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-  - 额外内容
-
-- 创建各向异性类型的镜面反射着色器
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-## 4.Unity 5中基于物理原理的渲染
-
-- 介绍
-
-- 理解着色器中金属质感属性的设置
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-  - 额外内容
-
-- 物理原理的渲染中添加透明通道
-
-  - 始前准备
-
-  - 操作步骤
-
-    - 半透明材质
-
-    - 物体如何消失
-
-    - 如何在显示物体中挖一个孔
-
-  - 额外内容
-
-- 创建一面镜子和反射面
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-  - 额外内容
-
-- 场景中光的烘培
-
-  - 始前准备
-
-  - 操作步骤
-
-    - 场景中静态集合体的设置
-
-    - 光探针的设置
-
-    - 开始烘培光
-
-  - 原理介绍
-
-  - 额外内容
-
-## 5.顶点函数
-
-- 介绍
-
-- 在表面着色器中访问顶点颜色
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-  - 相关补充
-
-- 对表面着色器中的顶点使用动画
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-- 模型的形变
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-  - 相关补充
-    - 添加形变贴图
-
-- 实现一个被雪覆盖的着色器
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-    - 为物体表面设置颜色
-
-    - 修改几何体
-
-  - 额外内容
-
-- 实现范围体爆炸
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-  - 相关补充
-
-  - 额外内容
-
-## 6.片元着色器和通道提取
-
-- 介绍
-
-- 理解顶点和片元着色器
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-  - 相关补充
-
-    - 顶点的输入语义
-
-    - 顶点的输出语义
-
-  - 额外内容
-
-- 使用通道提取
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-  - 相关补充
-
-- 实现一个玻璃效果的着色器
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-  - 相关补充
-
-- 在2D游戏中实现水效果的着色器
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-## 7. 移动设备中着色器的调整
-
-- 介绍
-
-- 什么是着色器的轻量化?
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-- 着色器的性能分析
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-  - 相关补充
-
-- 针对移动设备修改着色器
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-## 8.通过Unity 渲染贴图实现屏幕特效
-
-- 介绍
-
-- 设置屏幕特效脚本系统
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-  - 相关补充
-
-- 亮度, 饱和度和对比度在屏幕特效中的作用
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-- 屏幕特效中基础的照片融合模式
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-  - 相关补充
-
-- 屏幕特效中的叠加混合模式
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-## 9.游戏和屏幕特效
-
-- 介绍
-
-- 创建一个老电影屏幕特效
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-  - 额外内容
-
-- 创建一个夜视仪效果的屏幕特效
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-  - 相关补充
-
-## 10.更高级的着色器技术
-
-- 介绍
-
-- 使用Unity内建的CG包含文件功能
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-- CG包含文件功能如何让着色器模块化
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-- 实现一个毛皮效果的着色器
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-  - 相关补充
-
-- 如何通过数组来实现热图
-
-  - 始前准备
-
-  - 操作步骤
-
-  - 原理介绍
-
-
-
-
-
-
-
-***
-
-<span id="credits"></span>
-
-**鸣谢** 
-
-**本书作者** 
-
-Alan Zucconi 
-
-Kenneth Lammers 
-
-**审稿** 
-
-Kenneth Lammers 
-
-**组稿编辑** 
-
-Priya Singh 
-
-**策划编辑** 
-
-Rahul Nair 
-
-Erol Staveley 
-
-**项目内容编辑** 
-
-Mehvash Fatima 
-
-**技术编辑** 
-
-Pranil Pathare 
-
-Danish Shaikh 
-
-**文字编辑** 
-
-Tasneem Fatehi 
-
-**项目助理** 
-
-Kinjal Bari 
-
-**校对员** 
-
-Safis Editing 
-
-**索引员** 
-
-Monica Ajmera Mehta 
-
-**图像** 
-
-Kirk D’Penha 
-
-Disha Haria 
-
-**制作协调员** 
-
-Nilesh Mohite 
-
-**封面设计** 
-
-Nilesh Mohite
-
-
-
----
-
-<span id="about_author"></span>
-
-**关于作者** 
-
-**Alan Zucconi** 是一个充满激情的开发者, 作者, 和一个激励的演讲者, 是开发者领域的佼佼者。 有着过去10年来相关领域的专业技能积累，并且决定在今后把精力都放在学术领域和游戏产业领域。作为一名自由职业者，他以非凡的创造力去探索如何让游戏更好的与艺术结合。  在此之前，他在伦敦帝国理工学院工作，在这里他发现了他教学和写作的激情。 他的头衔包括了 gravity puzzle, 0RBITALIS, 和the upcoming time travel platformer, Still Time（这些单词实在不知道怎么翻译了，应该是游戏名字）. 
-
-**Kenneth Lammers** 在游戏领域有超过15年的经验, 担任过角色艺术家，技术美术，技术美术总监，和程序员。这让他有机会参与《使命召唤3》《除暴战警2》 《心灵杀手》和《Kinect星球大战》等众多著名游戏的开发。他现在跟他的商业伙伴**Noah Kaarbo**一起运营自己的Ozone 工作。，同时，他们也跟亚马逊，Eline Media，IGT和微软也有过合作。他之前为微软游戏工作室，动视和Surreal工作过。现如今他离开了哪些工作室，一手开办了自己的 CreativeTD 和 Ozone 工作室（感觉翻译成互动娱乐更好）。Kenny通过Packt Publishing出版社写了他的第一版 《Unity Shaders and Effects Cookbook》书，整个过程非常的愉快。
-
-***
-
-<span id = "packtpub"></span>
-
-## [www.PacktPub.com](https://www.packtpub.com/)
-
-这是一个电子书的网站，等于是帮这个网站宣传了吧，大家直接点击超链接进去看就行了。一般来说，你只要在上面买了电子书，特别是技术书籍，相关的代码，附件也可以从上面下载。
-
-***
-
-<span id = "ebook"></span>
-
-**电子书, 优惠折扣, 额外信息**
-
-**Packt **电子书网站拥有包含pdf和ePub格式的所有已经出版的书籍的电子书。你可以在www.PacktPub.com 更新你的电子书版本并且如果你购买过相应的纸质书籍的话，可以在购买对应的电子版本时享有折扣。你可以通过 <customercare@packtpub.com> 这个邮箱向我们了解优惠的详细信息。你可以在 www.PacktPub.com 阅读一系列免费的技术文章，现在在网站注册可以获知最新的免费和折扣信息 
-
-[https://www2.packtpub.com/books/subscription/packtlib ](https://www2.packtpub.com/books/subscription/packtlib)
-
-（告诉大家一个不幸的消息，上面这个网址已经过期了） 
-
-你是否因为IT技术问题缺乏具体的示例而苦恼，上面这个网站也许可以帮到你，这是一个在线的数字图书馆。你可以在这个数字图书馆上搜索，获取资料和阅读**Packt**电子书网站为你准备的丰富的电子书。
-
-
-
-***
-
-<span id = "subscribe"></span>
-
-**为什么希望你订阅?** 
-
-可以查阅所有 **Packt**网站发布的的书籍 
-
-可以拷贝，打印所有书籍 
-
-可以通过浏览器查找你最需要的资料
-
-
-
-***
-
-<span id = "preface">
-
-## 前言
-
-**Unity 5.x Shaders and Effects Cookbook**这本书能让你在Unity5引擎中创建着色器和特效更加得心应手，能让你入门起来比较容易，学会创建大部分基础的着色器，并且学会如何组织你的着色器代码。本书的章节安排是循序渐进的，每一章节的基础知识，旨在后面让你能实现更高级的技术技巧，比如实现范围体爆炸效果，毛皮特效等。这本书是专门在Unity5这个游戏引擎下讲解的，希望帮助你掌握诸如基于物理原理的渲染和全局光照等知识，让你尽可能获得照片级的效果。 
-
-在每一章的结尾，你都会获得一些新的技巧，这些技巧有助于提高你的着色器质量并且让你在写着色器的时候更加有效率。 为了让你能从入门到专家，每一个章节的特殊技巧和知识点都是我们为你精心编排的。对于着色器的初学者来说，你也可以通过一个章节一个章节的阅读，逐渐丰富你的着色器知识。不管怎样，通过本书的知识点，可以让你的游戏在次世代看起来更棒。当你完成这本书的学习之后，在Unity3d创建游戏的过程中，你就可以有各种各样的着色器用于你的游戏，并且了解怎么向你的游戏中去添加它们，怎么向你的游戏添加各种特效，怎么去优化你的游戏。让我们开始吧。
-
-***
-
-<span id = "whatcover"></span>
-
-**这本书包含哪些内容** 
-
-**<u>第一章</u>**,创建你的第一个着色器, 向你介绍如何在unity4和unity5中编写着色器代码（我会试着在unity2018上去实验，保证shader代码的正常执行，不限于unity4和5）。 
-
-**<u>第二章</u>**, 表面着色器和贴图映射, 介绍了一些如何实现表面着色器的通用且实用的技术，比如如何给游戏模型使用贴图和法线贴图。 
-
-**<u>第三章</u>**, 理解照明模型，带你深入理解在给模型使用着色器时光带来的影响，这一章会教你一些如何实现自定义的光照模型的技术技巧，以便于你去实现一些独特的特效，比如卡通着色器效果。 
-
-**<u>第四章</u>**, Unity 5中基于物理原理的渲染, 这一章为你介绍在unity5中基于物理原理的标准渲染技术，这些技术主要是为了在你的游戏中实现次世代的画面（直译就是看起来跟现实世界一样）。会向你解释如何尽可能的模拟这种现实，让你对透明通道，反射表面和全局光照有更深入的理解。 
-
-**<u>第五章</u>**, 顶点函数,向你介绍如何使用着色器来修改游戏中物体的几何特性；想知道范围体爆炸，着色器模拟下雪等特效嘛？这一章里的着色器操作顶点的技术技巧会告诉你如何实现 
-
-**<u>第六章</u>**, 片元着色器和通道提取, 这一章会解释如何使用半透明材质和通道提取来实现扭曲形变效果 
-
-**<u>第七章</u>**, 移动设备中着色器的调整，主要介绍如何针对移动设备进行优化。 
-
-**<u>第八章</u>**, 通过Unity 渲染贴图实现屏幕特效,介绍了通过该技术才能更容易实现的视觉特效的实现方式。 
-
-**<u>第九章</u>**, 游戏和屏幕特效,向你介绍一些游戏后处理特效，让游戏模拟的更加真实，比如夜视仪特效。 
-
-**<u>第十章</u>**, 更高级的着色器技术,介绍一些向毛坯特效的着色器，热图渲染等本书会涉及的大部分高级技术技巧  
-
-***
-
-<span id="youneed"></span>
-
-**学习的过程中你需要准备的**
-下面列举了在学习本书知识的过程中必须的工具软件和可选的工具软件:
-
-- Unity5引擎
-- 一款3D建模软件，比如Maya，3DMax，或Blender (可选l)
-- 一款2D图片编辑软件，比如PS或者Gimp (可选)  
-
-
-
-***
-
-<span id = "who_for"></span>
-
-**本书的适合人群** 
-
-本书适合色器编程初学者，或者想通过专业的后处理特效让游戏更棒的开发者。 
-
-当然开发者本身需要对Unity游戏引擎有比较深入的理解。
-
-***
-
-<span id = "sections"></span> 
-
-**内容结构** 
-
-在本书中， 会经常出现一系列的小标题 (**始前准备**，**操作步骤**，**原理介绍**，**额外内容** ，**相关补充**)。
-
-主要功能是对每一个知识点进行说明，如何完成该知识点的掌握。下面说明具体的用法： 
-
-
-
-- **始前准备** 
-
-  这个部分会告诉你这个知识点会学习什么，怎么安装和设置对应的软件。 
-
-- **操作步骤**
-
-  这个部分包含了学习该知识点包含那些步骤。
-
-- **原理介绍**
-
-  该部分通常是为了详细解释“**操作步骤**”这个部分的知识原理，上面的每一步到底做了什么。
-
-- **额外内容**
-
-  为了让读者了解更多与该知识点相关的额外知识，我们才准备了这个额外信息让读者阅读。
-
-- **相关补充**
-
-  如果想了解更多与该知识点相关的信息，这里还额外提供了一些相关链接。
-
-
-
-***
-
-<span id = "Conventions"></span>
-
-**本书的一些文体说明** 
-
-在书中你可以发现很多种不同的文本样式用来表示不同的信息内容。这里列举几个来解释一下。（需要说明一下的是，我在翻译的过程中，代码的字体样式可能会跟书本上不一样，我主要是用markdown的代码块来表示。然后它的粗体，比如强调，那我就用markdown中的强调标签来表示，说声抱歉了，希望大家能看的懂）
-
-代码块，数据库表名，文件夹名字 ，文件名字，文件扩展名，路径名称，虚拟URL（觉得这个翻译不准确），用户输入，推特账号等会按照如下表示：“请输入下面的代码到你的着色器属性块（**Properties **）中” 
-
-```shader
-void surf (Input IN, inout SurfaceOutput o) 
-{ 
-	float4 c; 
-	c = pow((_EmissiveColor + _AmbientColor), _MySliderValue); 
-	o.Albedo = c.rgb; o.Alpha = c.a;
-}  
+# Chirpy
+
+Language: English | [简体中文](docs/README.zh-CN.md)
+
+[![Build Status](https://github.com/cotes2020/jekyll-theme-chirpy/workflows/build/badge.svg?branch=master&event=push)](https://github.com/cotes2020/jekyll-theme-chirpy/actions?query=branch%3Amaster+event%3Apush)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8220b926db514f13afc3f02b7f884f4b)](https://app.codacy.com/manual/cotes2020/jekyll-theme-chirpy?utm_source=github.com&utm_medium=referral&utm_content=cotes2020/jekyll-theme-chirpy&utm_campaign=Badge_Grade_Dashboard)
+[![GitHub license](https://img.shields.io/github/license/cotes2020/jekyll-theme-chirpy.svg)](https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/LICENSE)
+[![996.icu](https://img.shields.io/badge/link-996.icu-%23FF4D5B.svg)](https://996.icu)
+
+A minimal, sidebar, responsive web design Jekyll theme that focuses on text presentation. Designed to help you record and share your knowledge easily. [Live Demo »](https://chirpy.cotes.info)
+
+[![Devices Mockup](https://raw.githubusercontent.com/cotes2020/jekyll-theme-chirpy/master/assets/img/sample/devices-mockup.png)](https://chirpy.cotes.info)
+
+## Table of Contents
+
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [Credits](#credits)
+- [Supporting](#supporting)
+- [License](#license)
+
+## Features
+
+- Pinned Posts
+- Configurable theme mode
+- Double-level Categories
+- Last modified date for posts
+- Table of Contents
+- Automatically recommend related posts
+- Syntax highlighting
+- Mathematical expressions
+- Mermaid diagram & flowchart
+- Search
+- Atom Feeds
+- Disqus Comments
+- Google Analytics
+- GA Pageviews reporting (Advanced)
+- SEO and Performance Optimization
+
+## Installation
+
+[Fork **Chirpy**](https://github.com/cotes2020/jekyll-theme-chirpy/fork) on GitHub, rename the repository to `USERNAME.github.io` (where `USERNAME` is your GitHub username), and then open terminal and clone the fork to local by:
+
+```terminal
+$ git clone https://github.com/USERNAME/USERNAME.github.io.git -b master --single-branch
 ```
 
-当我们想提醒你代码块中的特别部分，那么对应的代码行或者语句会用粗体标记,比如那个void：(代码块中我不知道怎么加粗，下面这个就不用代码块了)
+### Setting up the local envrionment
 
-**void** surf (Input IN, inout SurfaceOutputStandard o)  
+If you would like to run or build the project on your local machine, please follow the [Jekyll Docs](https://jekyllrb.com/docs/installation/) to complete the installation of `Ruby`, `RubyGems`, `Jekyll` and `Bundler`.
 
-{  
+Before running or building for the first time, please complete the installation of the Jekyll plugins. Go to the root directory of project and run:
 
-​	fixed4 c = pow((_Color + _AmbientColor), _MySliderValue);  
+```terminal
+$ bundle install
+```
 
-​	o.Albedo = c.rgb;  
+`bundle` will automatically install all the dependencies specified by `Gemfile`.
 
-​	o.Metallic = _Metallic; 
+### Setting up Docker environment (optional)
 
-​	o.Smoothness = _Glossiness;  
+If you're a loyal fan of [**Docker**](https://www.docker.com/) or just too lazy to install the packages mentioned in [_Setting up the local envrionment_](#setting-up-the-local-envrionment), please make sure you have **Docker Engine** installed and running, and then get Docker image `jekyll/jekyll` from Docker Hub by the following command:
 
-​	o.Alpha = c.a;  
+```console
+$ docker pull jekyll/jekyll
+```
 
-}
+## Usage
 
+### Initialization
 
+Go to the root directory of the project and start initialization:
 
-**新的术语** 和 **非常重要的词语** 都应该用粗体表示.像出现再电脑屏幕中的菜单和弹窗中的文本，也会用粗体加以强调。比如：“在Unity编辑器的菜单栏中的“**项目(Project)**,在**资产(Assets)**文件夹上右键单击和在菜单中选择**创建(Create)\|文件夹(Folder)**。” （中文后面括号里的是英文版的编辑器中菜单项的名字）
+```console
+$ bash tools/init.sh
+```
 
-**注意(Note)** 
+> **Note**: If you not intend to deploy it on GitHub Pages, append parameter option `--no-gh` at the end of the above command.
 
-警告或者很重要的注意会像这样，有个**注意(Note)**提醒你。 
+What it does is:
 
-**提示(Tip)** 
+1. Remove some files or directories from your repository:
 
-提示和小技巧会像这样，有个**提示(Tip)**提示你。  
+    - `.travis.yml`
+    - files under `_posts`
+    - folder `docs`
 
-***
+2. If you use the `--no-gh` option, the directory `.github` will be deleted. Otherwise, setup the GitHub Action workflow by removing extension `.hook` of `.github/workflows/pages-deploy.yml.hook`, and then remove the other files and directories in folder `.github`.
 
-<span id="feedback"></span>
+3. Automatically create a commit to save the changes.
 
-**读者反馈** 
+### Configuration
 
-非常欢迎来自各位读者的反馈。这能让我们知道你们是否喜欢这本书。你们给与的重要反馈可以让我们写出更适合且对你们更有帮助的内容。 
+Generally, go to `_config.yml` and configure the variables as needed. Some of them are typical options:
 
-通常最简单的反馈方式是通过<feedback@packtpub.com>邮箱给我们发邮件，然后在反馈邮件的标题中告诉我们书标题。 
+- `url`
+- `avatar`
+- `timezone`
+- `theme_mode`
 
-如果在本书中有你擅长领域的话题想跟我们讨论，或者你愿意把你专长领域的知识贡献给本书，也可以通过这个网址 [www.packtpub.com/authors](https://www.packtpub.com/authors)的指引进行操作
+### Run Locally
 
+You may want to preview the site contents before publishing, so just run it by:
 
+```terminal
+$ bundle exec jekyll s
+```
 
-***
+Then open a browser and visit to <http://localhost:4000>.
 
-<span id="support"></span>
+### Run on Docker
 
-**客户支持** 
+Run the site on Docker with the following command:
 
-很高心您能拥有此书，为了让您物有所值，我们还为你准备了很多东西（很搞不懂这也要搞一个章节出来，就一句话）。
+```terminal
+$ docker run -it --rm \
+    --volume="$PWD:/srv/jekyll" \
+    -p 4000:4000 jekyll/jekyll \
+    jekyll serve
+```
 
- 
+### Deployment
 
- 
+Before the deployment begins, checkout the file `_config.yml` and make sure the `url` is configured correctly. Furthermore, if you prefer the [_project site_](https://help.github.com/en/github/working-with-github-pages/about-github-pages#types-of-github-pages-sites) and don't use a custom domain, or you want to visit your website with a base url on a web server other than **GitHub Pages**, remember to change the `baseurl` to your project name that starting with a slash. For example, `/project`.
 
- 
+Assuming you have already gone through the [initialization](#initialization), you can now choose ONE of the following methods to deploy your website.
 
- 
+#### Deploy on GitHub Pages
 
- 
+For security reasons, GitHub Pages build runs on `safe` mode, which restricts us from using plugins to generate additional page files. Therefore, we can use **GitHub Actions** to build the site, store the built site files on a new branch, and use that branch as the source of the Pages service.
 
- 
+1. Push any commit to `origin/master` to trigger the GitHub Actions workflow. Once the build is complete and successful, a new remote branch named `gh-pages` will appear to store the built site files.
 
-***
+2. Browse to your repo's landing page on GitHub and select the branch `gh-pages` as the [publishing source](https://docs.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site) throught _Settings_ → _Options_ → _GitHub Pages_:
+    ![gh-pages-sources](https://raw.githubusercontent.com/cotes2020/jekyll-theme-chirpy/master/assets/img/sample/gh-pages-sources.png)
 
-<span id="codedownload">
+3. Visit your website at the address indicated by GitHub.
 
-**示例代码下载** 
+#### Deploy on Other Platforms
 
-通过这个网站[http://www.packtpub.com](https://www.packtpub.com/)，你可以用自己的账号下载本书的实例代码(其实我本人是建议自己手动敲一遍，我试了一下，代码是可以直接在这个网站下载的，就算你没有购买这本书也是可以的。但是需要注册一个账号才行，然后搜索到这本书，这本书的页面下面就有下载代码的链接)。如果你在别的地方购买了这本书，那么你可以浏览网站[ http://www.packtpub.com/support](https://www.packtpub.com/support)注册一个账号，然后在该页面直接通过书名搜索，也能找到这些文件的下载链接。
+On platforms other than GitHub, we cannot enjoy the convenience of **GitHub Actions**. Therefore, we should build the site locally (or on some other 3rd-party CI platform) and then put the site files on the server.
 
-代码文件可以通过下面的步骤获得：
+Go to the root of the source project, build your site by:
 
-1. 通过邮箱和账号密码在我们的[网站](https://www.packtpub.com/)上登陆或者注册。
+```console
+$ JEKYLL_ENV=production bundle exec jekyll b
+```
 
-2. 把网页拉到最下面，点击**支持主页([Support Home](https://www.packtpub.com/support))**（这本书出了很久了，网页早就改版了，这是我实际打开网页的操作步骤）。
+Or, build the site with Docker by:
 
-3. 然后点击该页面左边的**代码下载&勘误表(Code Downloads & Errata)**。
+```terminal
+$ docker run -it --rm \
+    --env JEKYLL_ENV=production \
+    --volume="$PWD:/srv/jekyll" \
+    jekyll/jekyll \
+    jekyll build
+```
 
-4. 然后在**搜索(Search)**框中输入你的书名（不用输入完整的书名，支持模糊搜索）。
+Unless you specified the output path, the generated site files will be placed in folder `_site` of the project's root directory. Now you should upload those files to your web server.
 
-5. 选择那本你想要下载代码的书。
+### Documentation
 
-6. 然后在下面的下拉菜单中选择你是从哪儿购买本书的（不要紧，随便选一个，然后下拉菜单的下面就会有一个下载链接）。 
+For more details and the better reading experience, please check out the [tutorials on demo site](https://chirpy.cotes.info/categories/tutorial/). In the meanwhile, a copy of the tutorial is also available on the [Wiki](https://github.com/cotes2020/jekyll-theme-chirpy/wiki).
 
-7. 然后点击**代码下载**（链接早就生成了，为了方便大家，我贴出链接，点击就可以[下载](https://account.packtpub.com/getfile/9781785285240/code)了，不清楚是否是永久链接）
+## Contributing
 
-下载好后，请自行解压，然后就可以获得本书的代码了。
+The old saying, "Two heads are better than one." Consequently, welcome to report bugs, improve code quality or submit a new feature. For more information, see [contributing guidelines](.github/CONTRIBUTING.md).
 
- 
+## Credits
 
- 
+This theme is mainly built with [Jekyll](https://jekyllrb.com/) ecosystem, [Bootstrap](https://getbootstrap.com/), [Font Awesome](https://fontawesome.com/) and some other wonderful tools (their copyright information can be found in the relevant files).
 
- 
+:tada: Thanks to all the volunteers who contributed to this project, their GitHub IDs are on [this list](https://github.com/cotes2020/jekyll-theme-chirpy/graphs/contributors). Also, I won't forget those guys who submitted the issues or unmerged PR because they reported bugs, shared ideas or inspired me to write more readable documentation.
 
- 
+## Supporting
 
- 
+If you enjoy this theme or find it helpful, please consider becoming my sponsor, I'd really appreciate it! Click the button <kbd>:heart: Sponsor</kbd> at the top of the [Home Page](https://github.com/cotes2020/jekyll-theme-chirpy) and choose a link that suits you to donate; this will encourage and help me better maintain the project.
 
- 
+## License
 
-***
-
-<span id="downloadPDF">
-
-**本书一些彩图的下载** 
-
-这本书中的彩图，比如说屏幕截图/示意图我们都把他放在了一个PDF文件中。希望这些图片可以让你更好的理解屏幕输出图像的变化。 你可以通过下面的链接下载这个PDF文件[https://www.packtpub.com/sites/default/files/downloads/Unity5xShadersAndEffectsCookboo](https://static.packt-cdn.com/downloads/Unity5xShadersAndEffectsCookbook_SecondEdition_Graphics.pdf)
-
-
-
-
-
-***
-
-<span id="errata"></span>
-
-**勘误表** 
-
-尽管我们非常注意本书内容的准确性，但还是会有不小心出错的地方。如果您在我们出版的书中（不限本书）找到了错误，有可能是文字错误或者代码错误，我们非常欢迎您将这些错误报告给我们。如此善举，既解他人之惑，亦可助改善此书。如果您发现任何勘误，请通过链接[https://www.packtpub.com/support/errata](https://www.packtpub.com/support/errata) （原书写的链接失效了）向我们报告。当您的勘误确认后，您提交的勘误将会被接受并且勘误会上传至我们的网站和任何已存在的勘误名单中。 如果您想看看之前的勘误提交，可以访问[https://www.packtpub.com/support/code-downloads](https://www.packtpub.com/support/code-downloads)（原书的网址失效了，现在是这个），然后输入书名搜索，你想要的信息会出现在下面的勘误部分。
-
-***
-
-<span id="piracy"></span>
-
-**盗版声明** 
-
-在网上，所有媒体的版权资料盗版问题从未停歇。 在**Packt**网，我们非常重视保护我们的版权和许可证。如果你在英特网上看到任何来自我们工作成果的 非法拷贝，不管来自那里，还请你提供给我们地址或者网址，这样我们可以挽回我们的损失。还请通过<copyright@packtpub.com>邮箱联系我们。 
-
-我们非常感激您帮助我们保护作者和保护我们继续给你带来有价值的内容。
-
-***
-
-<span id="questions">
-
-**本书有问题请联系** 
-
-如果您对本书有任何层面的问题，您可以通过邮箱<questions@packtpub.com>联系我们，我们会尽己所能改善这些问题。
-
-***
-
-<span id="chapter1"></span>
-
-
-
-## 第一章 创建你的第一个着色器
-
-在这一章我们包含了一些在当今**游戏开发着色器管线**中更通用的漫反射技术基础。在这一章我们将会学习下面的知识点: 
-
-
-
-- 创建一个基础的标准着色器
-- 从Unity4迁移旧着色器至Unity5
-- 为着色器添加属性
-- 在表面着色器中使用属性
-
-
-
-<span id="cha1_intro">
-
-### 介绍
-
-让我在脑海中想象一个完全由白色绘制立方体。尽管立方体的每一个面的颜色都是相同的，但是由于不同方向的光线照射和我们看这个立方体的角度的不同，我们总能发现立方体不同的白色阴影。这种层级的逼真场景就是通过3D图形学中的着色器实现的，它是一种模拟光的作用原理的特别的程序。一个木质的立方体和一个金属的立方体也许可以是同一种3d模型，之所以让他们看起来一个是木质的，一个是金属的，就是因为它们使用了不同的着色器的缘故。我们循序渐进，第一章将会向你介绍如何在Unity中进行着色器编码。如果你从来没有编写着色器的经验，那么在这一章，你将会了解着色器是什么，他们如何工作和如何自定义着色器。 接着在这一章的结尾，你将会学习如何构建拥有基础操作的基础着色器。有了这些知识后，那么你将可以创建任何的表面着色器。
-
-<span id="CBSS"></span>
-
-### 创建一个基本的标准着色器
-
-每一个Unity游戏开发者应该都对**组件(components)**这个概念非常熟悉。游戏中的对象都有很多的组件，这些组件决定了游戏中的对象看起来是什么样子和会有什么样的行为。然而**游戏脚本(scripts )** 定义的是游戏对象会有怎样的行为，**渲染器(renderers )**决定游戏对象如何出现在屏幕中。 对于我们想要看到游戏对象类型，Unity本身提供了一些渲染器。每一个3D模型通常都有一个网格渲染器。一个游戏对象应该只能有一个渲染器，但是一个渲染器它可以包含多个**材质(materials)**。 每个材质封装了一个着色器--3D图形的最后一环。这些组件的关系可以用如下的示意图表示：
-
-<div align=center><img src="https://linkliu.github.io/tech-landscape/assets/img/shader_book/diagram1.png"/></div>
-
-
-
-<center>理解这些组件之间的不同之处对于理解着色器的工作原理是很有必要的</center>
-
-***
-
-<span id="CBSS_getting_ready">
-
-
-- **始前准备**
-  开始学习这个知识点之前，你需要打开你的Unity5并且创建一个新的项目。本书的内容讲解都会在这个项目中开展，随着学习的深入你之后自己创建的着色器都可以放在这。这一步完成之后----欢迎来到着色器实时编程的精彩世界。 
-
-***
-
-<span id="CBSS_how_to_do_it">
-
-
-- **操作步骤**
-
-  在创建我们的第一个着色器前，让我们为实验着色器创建一个简单游戏场景。首先我们导航到Unity的菜单栏，然后选择**游戏对象\|创建空对象**。然后在Unity编辑器的**层级面板(Hierarchy)**选中刚刚创建的空对象，在上面创建一个平面作为地面，再创建几个球体用来应用我们的着色器，然后在场景里面创建平行光源。当场景弄好后，我们接下来就按步骤开始着色器的编写： 
-
-  1. 在编辑器的**项目(Project)**窗口中，直接右键选择**创建(Create)\|文件夹(Folder)**。【这里的文件夹名字我就直接用英文了，大家在自己开发的过程中也尽量用有意义的英文文件夹吧】
-     **注意**
-     如果你导入了本书提供的项目文件（就是你从网站上下载的代码，他是一个unitypackage包，导入之后这个文件自动就有了），你可以直接跳至步骤4。
-     
-  2. 选择该文件夹，右键然后选择**重命名(Rename)**，把这个文件夹命名成**Shaders**。或者你也可以选中该文件夹，然后按**F2**，重命名为**Shaders**。
-  
-  3. 用上面同样的方法创建一个**Materials**的文件夹，用来放材质文件的。
-  
-  4. 右键**Shaders**文件夹，然后在出的窗口中选择**创建(Create)\|着色器(Shader)\|标准表面着色器(Standard Surface Shader)**（这里注意跟原文不一样，创建一个着色器要三步，书中只有两部）。接着我们创建一个材质，右键**Materials**文件夹，然后在弹窗中选择**创建(Create)\|材质(Material)**。
-  
-  5. 把刚刚创建的着色器和材质都命名成**StandardDiffuse**。【各位，文件名也用英文呀，因为怕Unity对中文的支持不好】
-  
-  6. 然后用Visual Studio 2015或者Visual Studio Code打开**StandardDiffuse**这个着色器【这里我不建议用MonoDevelop这个编辑器，原文是用这个，不好用，强烈建议用各位用Visual Studio Code打开，这个编辑器很好用，一定要去试试】   
-   **注意**  
-   打开着色器你会发现Unity其实已经为我们的着色器生成了一些基本的代码。这些基础代码给了你一个基础的漫反射着色器，而且可以传入一张贴图。我们会在后面的步骤修改这些着色器代码，创建自己的着色器。
-      
-  7. 首先我们给自己的着色器一个自定义的文件夹【这不是传统的文件夹，我更倾向理解为材质选择路径】，这样方便使用时可以按照这个文件夹找到它。着色器的第一行代码是一段描述，这段描述的作用是当我们为材质选择着色器时，这段描述会会转换成选择路径，给材质添加我们自己的着色器。我们把这个路径重写为 **Shader "CookbookShaders/StandardDiffuse"**。当然你也能在任何时间把它命名为任何路径。不用特别在意这个路径名。然后记得保存我们的代码，然后切换回Unity编辑器。当Unity编辑器检测到着色器代码有更新，它会自动重新编译着色器。修改后的着色器代码如下所示：
-	``` 
-	Shader "CookbookShaders/StandardDiffuse" {
-		Properties {
-			_Color ("Color", Color) = (1,1,1,1)
-			_MainTex ("Albedo (RGB)", 2D) = "white" {}
-			_Glossiness ("Smoothness", Range(0,1)) = 0.5
-			_Metallic ("Metallic", Range(0,1)) = 0.0
-			}
-			SubShader {
-				Tags { "RenderType"="Opaque" }
-				LOD 200
-				CGPROGRAM
-				// Physically based Standard lighting model, and enable shadows on all light types
-				#pragma surface surf Standard fullforwardshadows
-				// Use shader model 3.0 target, to get nicer looking lighting
-				#pragma target 3.0
-				sampler2D _MainTex;
-				struct Input {
-					float2 uv_MainTex;
-					};
-				half _Glossiness;
-				half _Metallic;
-				fixed4 _Color;
-				void surf (Input IN, inout SurfaceOutputStandard o) {
-					// Albedo comes from a texture tinted by color
-					fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
-					o.Albedo = c.rgb;
-					// Metallic and smoothness come from slider variables
-					o.Metallic = _Metallic;
-					o.Smoothness = _Glossiness;
-					o.Alpha = c.a;
-				}
-				ENDCG
-			}FallBack "Diffuse"
-	}
-	```
-	8. 专业一点说，这是一个**基于物理原理渲染(physically-basedrendering)**的表面着色器，只是Unity5把它作为了一个内建的标准着色器。根据这种着色器的字面意思，这是一种根据现实中光的物理原理，来模拟游戏中光照射到物体时所表现的物理特性，通过这种模拟，来虚拟现实。 如果你用的时早期版本的着色器（比如Unity4），那么你的着色器代码跟现在的会有比较大的差别。相比于现在的基于物理原理的着色器技术而言，Unity4使用的技术还是相对比较简单的。所有的这些着色器类型我们会在本书后面的章节介绍。  
-	9.  当你的着色器创建好后，我们需要将它与材质关联起来。选中我们之前在步骤4创建的**StandardDiffuse**材质，然后看**查看面板(Inspector tab)**。然后再**着色器(Shader)**下拉列表中选择**CookbookShaders \| StandardDiffuse**。（如果你在第7步修改的路径跟书上不一样，那么这里的选项也不一样）通过上述步骤，你的着色器就会跟这个材质关联起来，你现在可以把这个材质添加到一个游戏对象中去了。
-	      **注意**
-	
-	      你可以在**项目窗口(Project tab)**选中这个材质，然后直接拖拽到你在游戏场景中的游戏对象身上。当然你也可以直接选中这个材质，然后拖拽到Unity编辑器的**查看面板(Inspector tab)**上，把这个材质应用到这个游戏对象上，前提是你要先选中这个游戏对象，然后再拖拽，这样**查看面板(Inspector tab)**显示的才是游戏对象的属性。 
-	
-	      下面时这个示例的屏幕截图：【各位按照自己的情况来就行了，不一定非要找一个跟书本一样的模型】
-	
-
-<div align="center"><img src="https://linkliu.github.io/tech-landscape/assets/img/shader_book/diagram2.png"/></div>	      
-<center>看起来很简陋, 但是着色器开发环境搭建好了，接下来我们可以开发自己想要的着色器了</center>
-***
-
-  <span id="CBSS_how_it_work"></span>
-
-- **原理介绍**
-
-  Unity帮助你简化了着色器运行的环境配置，你很多时候只需要点击鼠标就可以完成。但事实上这些简单的操作背后有着大量的各种各样的工作，只是Unity引擎替你做了。Unity 使用CG着色器语言，并且它在背后做了大量的工作【unity会自动生成相应的CG代码】，让你在写着色器的时候非常高效。用表面着色器格式的语言来写着色器更加方便。比如处理你自己的贴图的坐标或者线性变换矩阵，这些功能都已经准备好，不用再从头开始。以前写着色器，你必须重新创建一个着色器然后一遍又一遍的重新很多代码。随着你对表面着色器的深入理解，你可能会越想了解CG语言更底层的功能以及Unity是如何处理那些更底层的**图形处理单元(graphics processing unit (GPU))**任务的。  
-
-  **注意**
-  Unity项目中的所有文件都有自己的引用，跟它在你电脑上具体的某个文件夹上没有关系。我们在编辑器上，你可以可以随便移动着色器文件和材质文件，它们之间不会有关联信息丢失的风险。但你千万不要在编辑器外面移动这些文件，【比如直接打开项目文件夹，在电脑上直接移动这些文件】这样的话Unity编辑器不能够更新这些文件之间的关联，可能会发生丢失的情况。 
-
-  我们通过简单的修改着色器的路径属性可以给着色器一个我们想要的名字，我们在Unity环境中进行了基础的漫反射着色器的研究，包括光呀，阴影呀之类的。而这些，仅仅是通过改变一行代码。  
-  
-  ***
-  <span id="CBSS_see_also"></span>
-- **额外内容** 
-  
-  在Unity5中内建的着色器的源码通常被隐藏起来了，你不能像打开自己的着色器代码那样打开它。在你的Unity安装目录**Unity45\Editor\Data\CGIncludes**，你能找到大部分的Unity内建的CG功能代码。在这个目录下面，你能找到被Unity隐藏起来的一些着色器。
-  经过多年的迭代，它们已经发生了很多的改变；如果你想查阅Unity不同版本之间的色器源码发生了那些变化，下面这个网站也许是个好去处：[https://unity3d.com/get-unity/download/archive](https://unity3d.com/get-unity/download/archive)。选择你的Unity版本，然后在下拉列表中选择**内建着色器(Built in shaders)** ，如下图所示。 此时我们需要留意其中的三个文件—**UnityCG.cginc**，**Lighting.cginc**和**UnityShaderVariables.cginc**。我们现在学习的着色器都只要用到这三个相关的文件：
-
-  <div align="center"><img src="https://linkliu.github.io/tech-landscape/assets/img/shader_book/diagram3.png"/></div>	      
-  <center>第十章.<i><b>更高级的着色器技术</b></i>, 我们将会深层次探索如何使用GcInclude进行模块化的着色器编程</center> 
-
-***
-
-
-
-
-
-<span id="MLSUU"></span>
-
-
-### 如何把Unity 4的旧着色器迁移至Unity 5
-不可否认，在过去10年中图形学在电子游戏中获得了惊人的发展。每一个新游戏带来的尖端技术让我们的游戏画面更加接近现实。随着Unity引擎版本的不断迭代，它的着色器技术也自然而然的经历了相当大的变化。这也是为什第一次接触着色器的时候感到困惑的原因。在Unity5还没有推出之前，Unity自带了两种不同的着色器，分别是：**漫反射(Diffuse)**和**镜面反射(Specular)**。正如其名字所描述，它们分别用来模拟表面粗糙和表面光滑的材料。如果你现在使用的Unity5，那么你其实可以跳过这个知识点。该知识点会讲解如何在Unity5中重现这些效果。 
-
-
-***
-
-- **始前准备**<span id="MLSUU_getting_ready"></span>
-
-  要开始这个知识点，前提时你有个用Unity4版本作为开发引擎工作空间，并且你使用了这个版本内建的一些着色器。当你开发新游戏的时候，毫无疑问你应该改选择最新版本的Unity引擎。然而如果你的项目已经使用了旧版的Unity引擎开发，那么你在迁移着色器前应该三思。引擎背后可能又很多东西都不一样了，即使有时候内建的着色器表面看起来可以正常工作，但是你写的脚本可未必能。所以如果你要迁移整个项目空间，这个时候首先要做的事情就是备份。但是要注意噢，仅仅只是保存Assets资源和场景可不够，同时所有的.meta文件也要一并保存，因为大多数Unity的配置信息保存在元数据中。在迁移项目的过程中最稳妥的办法还是要把整个项目空间所在文件夹都复制一份。最好的是物理拷贝一份，如果是windows就在资源管理器物理复制，如果是Mac就在Finder中物理复制。【建议大家将这个项目目录用压缩工具【如winrar】打包一份】。
-  
-***
-
-  
-
-- **操作步骤**<span id="MLSUU_how_to_do_it"></span>
-
-  如果你想要迁移你的内建着色器，有两个主要选择：采用自动升级的方式或者切换至**标准着色器**
-
-  - **着色器版本的自动升级**
-
-    这种选择是最操作起来最简单的。Unity5可以导入使用旧版内建着色器的项目并且自动升级。你需要主义的是一旦升级完成后，那么你在Unity4中就不能再使用它们了。尽管这个过程并没有直接改变你的Assets资源，但是Unity的元数据已经被转换过了。要进行这个过程，你需要打开Unity5引擎，然后点击**文件(File)\|打开项目(Open Project)**来打开你就项目所在的文件夹。然后回有提示问你是否愿意转换；然后点击**升级(Upgrade)**执行改过程。Unity就会重新导入所有的Assets资源并且重新编译所有的游戏脚本。如果你的项目非常巨大，这个过程可能回持续几个小时。一旦转换完成，来自Unity4的内建的旧着色器会被相应的替换掉。 你可以通过查看面板验证这个转换，材质实例中从原来的**Bumped Diffuse**变为了**Legacy Shader/Bumped Diffuse**。
-    
-    **注意**
-    
-    尽管Unity4版本的漫反射，镜面反射和其他内建的着色器现在已经已弃用了，但是Unity5依然向后对它们保持兼容。它们在材质的**Legacy Shaders**路径下的下拉列表中依然可以看到。
-    
-  - **使用标准着色器**
-  
-    相比于使用旧版本的着色器，你可能想使用Unity5新的内建标准着色器替代它们。但是这么做之前，请留意新旧两个版本的着色器是基于不同的光照模型的，你的材质很可能看起来不一样。Unity4总共有8个不同的内建着色器，它被划分进了6个大类(**法线(Normal)**，**透明(Transparent)**，**透明剪切(Transparent Cutout)**，**自发光(Self-Illuminated)**和**反射(Reflective)**)。但在Unity5中，它们都被上一个知识点所讲的那些标准着色器所替代了。不幸的是，没有什么很好的办法能够将旧着色器完美的迁移只新版本的着色器。但是你可以通过下面这个表格着重理解如何通过配置标准着色器去模拟unity4的旧着色器的效果：
-    
-    
-    <table>
-        <tr>
-            <th>Shader</th>
-            <th>Unity 4 </th>
-            <th>Unity 4 (Legacy)</th>
-            <th>Unity 5</th>
-      </tr>
-        <tr>
-            <td>Diffuse</td>
-            <td>Diffuse Lambert</td>
-            <td>Legacy Shader/Diffuse Lambert</td>
-            <td>Standard Physically-based rendering: Metallic Workflow</td>
-        </tr>
-        <tr>
-            <td>Specular</td>
-            <td>Specular Blinn-Phong </td>
-            <td>Legacy Shader/Specular Blinn-Phong</td>
-            <td>Standard (Specular setup) Physically-based rendering: Specular Workflow</td>
-        </tr>
-        <tr>
-            <td rowspan="2">Transparent</td>
-            <td>Specular Blinn-Phong </td>
-            <td>Legacy Shader/Transparent Vertex-Lit</td>
-            <td>Standard Rendering Mode: Transparent</td>
-        </tr>
-         <tr>
-            <td>Transparent Cutout Vertex-Lit </td>
-            <td>Legacy Shader/Transparent Cutout Vertex-Lit</td>
-            <td>Standard Rendering Mode: Cutout</td>
-        </tr>
-    </table>
-    
-    你可以在旧材质的**查看面板(Inspector)**上通过**着色器(Shader)**下拉菜单改变它所使用的着色器。所有你需要做的就是简单的选择适当的标准材质。如果你的旧着色器使用了贴图，颜色和发现题图，那么在新版本的标准着色器上也会自动使用。当然为了更好的接近之前旧版本着色器的光照模型，你可能需要配置标准着色器的相关参数。 下图展示的是常见的斯坦福兔(*Stanford bunny* )，它们分别使用旧版本的漫反射着色器(右)，被转换的标准着色器(左)，和把**平滑度(Smoothness)**设置成0的标准着色器(中)：
-    
-    <div align="center"><img src="https://linkliu.github.io/tech-landscape/assets/img/shader_book/diagram4.png"/></div>	 
-
-
-  - **迁移用户自定义的着色器** 
-
-    如果你以前在Unity4上有写自定义的着色器，很有可能在Unity5中能直接正常使用。即使如此，Unity也有可能在着色器的工作原理上做了细小的改动，这些改动是可能引发一些错误和不一致性。有个变化最明显的重要参数就是光的强度。 光在Unity5中是原来亮度的两倍。所有的旧版本着色器在重写的的时候都应该考虑到这一点；如果你升级了你的着色器或者切换到标准着色器，你不会发现有任何的不同。但是如果你是自己写的光照模型，那么你就要注意确认光的强度不能再乘以二了。我们就用下面的代码举例来确认这种变化：
-
-    ```
-    // Unity 4
-    c.rgb = s.Albedo * _LightColor0.rgb * (diff * atten * 2);
-    // Unity 5
-    c.rgb = s.Albedo * _LightColor0.rgb * (diff * atten);
-    ```
-
-    
-
-    如果你还没有写过着色器，大可不必惊慌：光照模型会在第三章，**理解照明模型** 中全面详细的讲解。
-
-    **注意**
-
-    Unity5对着色器的处理相比于Unity4来说还有一些其他的变化，你可以下面这个网址中查看所有着色器在Unity5中的处理方式的变化 
-
-    [http://docs.unity3d.com/Manual/UpgradeGuide5-Shaders.html](http://docs.unity3d.com/Manual/UpgradeGuide5-Shaders.html)。
-
-***
-  - **原理介绍**<span id="MLSUU_how_it_works"></span>
-
-    着色器的编写需要权衡画面表现和效率；效果逼真的着色器需要极大的计算量，可能导致严重的延迟。所以，有一点很重要，就是只使用我们确切需要的效果：如果一个材质不需要高光反射，那么就不要在着色器中去计算它们。这也是在Unity4中把这些效果拆分成了很多不同着色器的主要原因。 新版本的标准着色器有潜力替换掉先前旧版本的着色器，因为它把法线贴图，透明通道和反射都包括在内了。然而，这个标准着色器经过巧妙的优化，使它能够只去计算用到的效果，没用到的效果就不计算。尽管这样，标准着色器主要还是设计用于模拟现实的材质。相比较而言，漫反射和镜面反射着色器并不是为模拟现实的材质设计的。 这就是为什么从旧版本的着色器切换到标准着色器时，游戏对象在渲染的时候通常回发生一些细小的变化的原因。
-
-
-
-
-***
-  - **额外内容**<span id = "MLSUU_see_also"></span>
-
-    第三章， **理解照明模型**, 将会深入探索漫反射和镜面反射着色器的作用原理。尽管在Unity5中，它们已经被弃用了，但是如果你想要设计新的光照那么理解它们还是有必要的。 
-    
-    第四章，**Unity 5中基于物理原理的渲染** ，将会介绍如何在Unity5中展现标准着色器的潜力。
-
-
-
-
-
-
-
-
-***
-<span id = "APTS"></span>
-
-### 给着色器添加属性
-
-着色器的属性对于着色器管线来说时非常重要，因为艺术家或者用户想要添加贴图或者调整着色器的值都是通过著色器的属性来修改的。着色器的属性在材质的**查看面板(Inspector  )**中会提供GUI，提供图形界面让玩家去调整一个着色器，不用打开额外的编辑器。用Visual Studio Code打开你的着色器代码，从第2行到第7行的代码块就是着色器的**属性(Properties  )**。当前的这个着色器，他会有一个叫**_MainTex**的属性。如果你查看使用了这个着色器的材质，你能注意到着色器的**查看面板(Inspector )**中有一个**贴图(texture )**的GUI元素。着色器中的这行代码为我们创建了这个GUI元素。还有就是，Unity工作人员通过编码方式和努力的迭代，让你改变属性的这个过程非常快速高效。 
-
-
-
-***
-- **始前准备**<span id = "APTS_getting_ready"></span>
-
-  让我们来了解一下这个过程在**标准漫反射(StandardDiffuse)**着色器中是如何工作的，为此我们要创建自己的属性并且学习更多相关的着色器语法。比如我们会修改之前创建的着色器。在这个修改的着色器中，不适用贴图，而是仅仅使用能从**查看面板(Inspector)**直接修改的颜色和其他的属性。开始之前，我们先复制一个**标准漫反射(StandardDiffuse)**着色器。你可以在**项目(Project)**面板中选中它，然后按**Ctrl + D**。这样就会复制一份新的**StandardDiffuse 1**的着色器。【书上的写法有问题，在Inspector面板根本不能选中复制，应该在项目面板中选中在复制】
-  **注意**
-  你最好给你复制的这个着色器在第一行代码处给它一个恰当的名字。比如，**Shader "CookbookShaders/StandardDiffuse"**可以告诉Unity这个着色器叫**StandardDiffuse**并且把它分组到**CookbookShaders**这个着色器组。如果你是通过**Ctrl + D**复制的着色器，你新复制的这个着色器跟被复制的着色器就会用相同的名字和分组。为了避免混淆，一定要记得复制着色器代码之后，在第一行那里修改着色器的名字，给一个不会重复的名字。 
-
-
-
-
-***
-- **操作步骤**<span id = "APTS_how_to_do_it"></span>
-
-  当**StandardDiffuse2**这个着色器准备好后，我们就可以开始修改它的属性了：
-  1. 在着色器的**属性(Properties )**块中，删除着色器中下面的属性代码，整行删除：
-    ```
-    _MainTex ("Albedo (RGB)", 2D) = "white" {}
-    ```
-  2. 当我们移除这个必要的属性后，着色器不会被编译直到所有跟**_MainTex**的代码都被移除。然我们删除另外有引用的代码：
-    ```
-    sampler2D _MainTex;
-    ```
-
-  3. 原始的着色器使用**_MainTex**给游戏模型上色。为了改变这个，我们替换掉**surf()**方法的第一行代码，通过如下代码：
-    ```
-    fixed4 c = _Color;
-    ```
-
-  4. 当你修改完成之后，返回Unity，然后着色器会被重新编译， 之后我们的材质**查看**面板中就没有贴图选择这一选项了。 为了完成这个着色器的调整，让我们添加一个额外的属性给着色器，看看会有什么效果。输入下面的代码：
-    ```
-    _AmbientColor ("Ambient Color", Color) = (1,1,1,1)
-    ```
-
-  5. 我们在材质的**查看**面板中添加了另一个颜色选项。现在，让我们来额外添加另一种类型的属性来找找属性语法的感觉。添加下面的代码到**属性**代码块中：
-    ```
-    _MySliderValue ("This is a Slider", Range(0,10)) = 2.5
-    ```
-  6. 我们创建了其他两种不同类型的GUI元素，它们可以让我们与着色器进行可视化的交互。我们这次创建了一个叫做**This is a Slider**的滑动条，就如下图所示：
-
-      <div align="center"><img src="https://linkliu.github.io/tech-landscape/assets/img/shader_book/diagram5.png"/></div>	
-
-  着色器的属性让你可以通过可视化的方式调整着色器，而不用在着色器自己的代码中调整。 下一个知识点将会为你介绍如何利用这些属性创建一些更有趣的着色器。
-  **注意**
-  尽管属性属于着色器，但是着色器上属性的值却是保存在材质上的。不同的材质可以很安全的共用相同的着色器。从另一方面说，修改材质上的属性的值，将会影响到所有使用了该材质的游戏对象的外观。 
-
-
-
-
-
-***
-- **原理介绍**<span id = "APTS_how_it_works"></span>
-
-  每一个Unity的着色器都有它想要的内建的代码结构。**属性**代码块就是Unity所期望的功能之一。**属性**代码块的目的是让着色器编程人员能快速的创建GUI交互元素，并且将GUI元素与着色器代码相关联起来。那些你在着色器**属性**面板中申明的属性，能让你在着色器代码中使用，从而修改着色器中的一些值，颜色和贴图。 定义一个属性的语法[也可以叫语义，也可以叫语法糖]如下：
-  <div align="center"><img src="https://linkliu.github.io/tech-landscape/assets/img/shader_book/diagram6.png"/></div>	
-
-  让我们来解释一下这个示意图。 当你第一次开始写一个新的属性时，你需要给这个书信一个**变量名(Variable Name)**。这个变量名能让着色器使用并且能让着色器代码获得来自该变量名绑定的GUI元素的值。这给我们节约了大量的时间因为我们不用自己来创建这么一个系统。属性的下一个元素时**查看面板GUI名称( Inspector GUI Name )**和属性的**类型(Type)**，这两个元素放在一对括号中。当玩家想要交互和调整着色器时，**查看面板GUI名称( Inspector GUI Name )**将会在材质的**查看面板(Inspector tab)**中展示。**类型(Type)**就是这个属性想要控制的数据类型。在Unity着色器中，有很多属性可以使用的类型。下面这个表展示了我们在着色器中可以使用的变量类型： 
-
-  <table>
-    <tr>
-      <th colspan="2" align="center" >Surface Shader property types</th>
-    </tr>
-    <tr>
-      <td>Range (min, max)</td>
-      <td>创建一个浮点类型的滑动条属性，值从最小值到最大值[min最小值，max最大值]</td>
-    </tr>
-    <tr>
-      <td>Color</td>
-      <td>在<b>查看面板(Inspector tab)</b>中创建一个颜色选取框，当你打开的时候会弹出一个调色板，颜色值(R,G,B,A)[四个浮点数，分别表示红，绿，蓝，透明度]</td>
-    </tr>
-    <tr>
-      <td>2D</td>
-      <td>创建了贴图选取框的GUI元素，可以让玩家通过拖拽的方式给着色器一张贴图</td>
-    </tr>
-    <tr>
-      <td>Rect</td>
-      <td>创建一个非2次幂贴图[NPOT]选取框，功能更<b>2D</b>属性类似</td>
-    </tr>
-    <tr>
-      <td>Cube</td>
-      <td>在<b>查看面板(Inspector tab)</b>创建一个立方体贴图[大家想想天空盒],可以让玩家拖拽立方体贴图到着色器中</td>
-    </tr>
-    <tr>
-      <td>Float</td>
-      <td>在<b>查看面板(Inspector tab)</b>中创建一个浮点型的值，但是没有滑动条</td>
-    </tr>
-    <tr>
-      <td>Vector</td>
-      <td>创建一个有四个值的属性，能让你表示方向或者颜色</td>
-    </tr>
-  </table>
-  最后就是这些属性的**默认值(Default Value)**了。可以在着色器代码中简单的给着色器的属性设置特定的值。在上一个图片属性改成颜色属性的列子中，属性
-  
-  **_AmbientColor**的默认值是一个**Color**类型的默认值，其值为**1，1，1，1**。这个颜色属性需要一个**RGBA**或者**float4**或者**r,g,b,a=x,y,z,w**赋值。颜色属性第一次创建的时候默认值时白色。
-
-
-
-
-
-***
-- **额外内容**<span id = "APTS_see_also"></span>
-
-  着色器属性的文档在Unity手册中的位置在[http://docs.unity3d.com/Documentation/Components/SL-Properties.html](http://docs.unity3d.com/Documentation/Components/SL-Properties.html)
+This work is published under [MIT](https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/LICENSE) License.

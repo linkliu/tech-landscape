@@ -1,4 +1,0 @@
----
-layout: post_bare
----
-

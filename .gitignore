@@ -1,7 +1,7 @@
-*.lock
-.DS_Store
-_site/
-.sass-cache/
-node_modules/
-package-lock.json
-.jekyll-cache/
+# hidden files
+.*
+!.github
+
+# jekyll cache
+_site
+vendor

@@ -1,62 +1,33 @@
-{% assign my = site.data.me %}
-<footer id="l-footer">
-    <div class="container">
-        <div class="row">
-          <div id="social" class="col-lg-5 col-md-5 col-sm-12">
-            <h3>SOCIAL</h3>
-            <ul>
-              {% for social in my.social %}
-                <li>
-                  <i class="{{ social.icon-class }}" title="{{ social.name }}"></i>
-                  {% if social.link != "" %}
-                    <a href="{{ social.link }}">&nbsp;&nbsp;{{ social.text }}</a>
-                  {% else %}
-                    {{ social.text }}
-                  {% endif %}
-                </li>
-              {% endfor %}
-            </ul>
-          </div>
+<!--
+  The Footer
+  v2.0
+  https://github.com/cotes2020/jekyll-theme-chirpy
+  © 2017-2019 Cotes Chung
+  MIT License
+-->
 
-          <div id="contact" class="col-lg-4 col-md-4 col-sm-12">
-            <h3>CONTACT</h3>
-            <ul>
-              {% for contact in my.contact %}
-                <li>
-                  <i class="{{ contact.icon-class }}" title="{{ contact.name }}"></i>
-                  {% if contact.link != "" %}
-                    <a href="{{ contact.link }}">&nbsp;&nbsp;{{ contact.text }}</a>
-                  {% else %}
-                    {{ contact.text }}
-                  {% endif %}
-                </li>
-              {% endfor %}
-            </ul>
-          </div>
-
-          <div id="rss" class="col-lg-3 col-md-3 col-sm-12">
-            <h3>SUBSCRIBE</h3>
-            <a href="{{ '/feed.xml' | relative_url }}">
-              <i class="rss fa fa-rss-square"></i>
-            </a>
-          </div>
-        </div>
-
-        <p id="legal">
-            Copyright (c) {{ 'now' | date: "%Y" }} {{ my.display_name }} | Powered by <a href="http://jekyllrb.com">Jekyll</a> &amp; <a href="http://github.com">GitHub</a> | designed &amp; build by <a href="http://unifreak.github.io">UniFreak</a><br />
-            The blog posts on this site are licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
-        </p>
+<footer class="d-flex w-100 justify-content-center">
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="footer-left">
+      <p class="mb-0">
+        © {{ 'now' | date: "%Y" }}
+        <a href="{{ site.social.links[0] }}">{{ site.social.name }}</a>.
+        {% if site.data.rights.brief %}
+        <span data-toggle="tooltip" data-placement="top"
+          title="{{ site.data.rights.verbose }}">{{ site.data.rights.brief }}</span>
+        {% endif %}
+      </p>
     </div>
+
+    <div class="footer-right">
+      <p class="mb-0">
+        Powered by
+        <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
+        with
+        <a href="{{ site.data.meta.homepage }}" target="_blank" rel="noopener">{{ site.data.meta.name }}</a>
+        theme.
+      </p>
+    </div>
+
+  </div> <!-- div.d-flex -->
 </footer>
-
-<script type="text/javascript" src="{{ '/assets/js/base.js' | relative_url }}"></script>
-
-{% include google_analytics.html %}
-
-{% unless layout.bare %}
-  {% include search_result.html %}
-{% endunless%}
-
-{% if page.layout == "post" %}
-<script type="text/javascript" src="{{ '/assets/js/post.js' | relative_url }}"></script>
-{% endif %}
